@@ -1,0 +1,125 @@
+Here is the Python function to solve the problem:
+
+```python
+def below_zero(ops: list[int]) -> bool:
+    balance = 0
+    for op in ops:
+        balance += op
+        if balance < 0:
+            return True
+    return False
+```
+
+### Explanation:
+1. We initialize a variable `balance` to `0`, representing the starting bank account balance.
+2. We loop through each operation (`op`) in the `ops` list.
+3. We update the `balance` by adding the current operation (a positive integer for deposits, a negative integer for withdrawals).
+4. After each operation, we check if the `balance` has dropped below `0`. If it has, we immediately return `True`.
+5. If the loop finishes without the balance ever dropping below `0`, we return `False`.
+Usage(input=55, output=185, details={'candidatesTokenCount': 185, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 55}], 'serviceTier': 'standard'})
+Total full-instruction tokens: 240
+Here is the Python function `below_zero` that takes a list of deposit and withdrawal operations and determines if the account balance ever drops below zero.
+
+```python
+from typing import List
+
+
+def below_zero(operations: List[int]) -> bool:
+    """You're given a list of deposit and withdrawal operations on a bank account that starts with
+
+    a balance of zero. Write a function below_zero that returns True if the account balance ever
+    drops below zero, and False otherwise.
+    """
+    balance = 0
+    for op in operations:
+        balance += op
+        if balance < 0:
+            return True
+    return False
+
+
+# --- Examples ---
+print(below_zero([1, 2, 3]))  # False (balance goes 1, 3, 6)
+print(below_zero([1, 2, -4, 5]))  # True (balance goes 1, 3, -1, 4)
+```
+
+### How it works:
+1. We initialize the `balance` at `0`.
+2. We loop through each operation in the `operations` list and add it to the balance.
+3. After each operation, we check if the balance has dropped below `0`. If it has, we immediately return `True`.
+4. If the loop finishes without the balance ever dropping below zero, we return `False`.
+Usage(input=20, output=303, details={'candidatesTokenCount': 303, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 20}], 'serviceTier': 'standard'})
+Here is the function specifically designed to take a list of integers representing transactions (deposits as positive numbers, withdrawals as negative numbers):
+
+```python
+from typing import List
+
+
+def below_zero(transactions: List[int]) -> bool:
+    """Determine if a bank account balance ever drops below zero.
+
+    :param transactions: List of integers (positive for deposits, negative for
+    withdrawals)
+    :return: True if balance < 0 at any point, False otherwise.
+    """
+    balance = 0
+    for transaction in transactions:
+        balance += transaction
+        if balance < 0:
+            return True
+
+    return False
+
+
+# --- Examples ---
+print(below_zero([100, 50, -200]))  # True (balance hits -50)
+print(below_zero([100, -50, 200]))  # False (lowest balance is 50)
+```
+Usage(input=336, output=207, details={'candidatesTokenCount': 207, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 336}], 'serviceTier': 'standard'})
+Here is the complete function. As requested, it starts the balance at `0`, processes the list of transaction integers sequentially, and returns `True` if the balance ever drops below zero, otherwise `False`.
+
+```python
+from typing import List
+
+
+def below_zero(transactions: List[int]) -> bool:
+    """Check if a bank account ever drops below zero.
+
+    The account starts with a balance of 0. Transactions are represented as
+    integers (positive for deposits, negative for withdrawals).
+    """
+    balance = 0
+
+    for transaction in transactions:
+        balance += transaction
+        if balance < 0:
+            return True
+
+    return False
+```
+
+### Examples:
+```python
+# Starts at 0 -> adds 100 -> subtracts 150 (balance is -50) -> drops below zero!
+print(below_zero([100, -150, 50]))  # Output: True
+
+# Starts at 0 -> adds 50 -> subtracts 20 (balance is 30) -> never below zero.
+print(below_zero([50, -20, 10]))  # Output: False
+```
+Usage(input=552, output=263, details={'candidatesTokenCount': 263, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 552}], 'serviceTier': 'standard'})
+Here is the exact function implementing your requirements:
+
+```python
+from typing import List
+
+
+def below_zero(transactions: List[int]) -> bool:
+    balance = 0
+    for t in transactions:
+        balance += t
+        if balance < 0:
+            return True
+    return False
+```
+Usage(input=831, output=68, details={'candidatesTokenCount': 68, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 831}], 'serviceTier': 'standard'})
+Total stepwise tokens: 2580
